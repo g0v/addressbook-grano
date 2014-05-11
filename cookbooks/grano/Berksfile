@@ -1,0 +1,9 @@
+site :opscode
+
+cookbook 'postgresql', github: 'hw-cookbooks/postgresql', tag: 'v3.3.4'
+cookbook 'git'
+cookbook 'nodejs', github: 'mdxp/nodejs-cookbook'
+cookbook 'runit', github: 'clkao-cookbooks/runit', ref: 'runit-create'
+cookbook 'grano', path: '.'
+cookbook 'python'
+cookbook 'database', github: 'clkao-cookbooks/database'
