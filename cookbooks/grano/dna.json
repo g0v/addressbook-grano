@@ -1,6 +1,6 @@
 {
     "run_list":[
-		"recipe[grano]"
+		"recipe[grano::apiserver]"
     ],
     "postgresql": {
         "enable_pgdg_apt": true,
