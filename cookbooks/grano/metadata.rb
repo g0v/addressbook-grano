@@ -10,4 +10,4 @@ depends "database"
 depends "python"
 depends "nodejs"
 depends "runit"
-
+depends "git"
