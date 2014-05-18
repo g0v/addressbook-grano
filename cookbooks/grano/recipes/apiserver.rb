@@ -1,6 +1,7 @@
 include_recipe "runit"
 include_recipe "database"
 include_recipe "postgresql"
+include_recipe "postgresql::ruby"
 include_recipe 'postgresql::server'
 
 postgresql_connection_info = {:host => "127.0.0.1",
