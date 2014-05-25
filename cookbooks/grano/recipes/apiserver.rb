@@ -54,6 +54,12 @@ end
 
 execute "init addressbook schema" do
   cwd "/opt/grano/app"
-  environment ({"GRANO_SETTINGS" => "/opt/grano/app/settings.py"})
+environment ({"GRANO_SETTINGS" => "/opt/grano/app/settings.py"})
   command "grano schema_import addressbook model.yml"
+end
+
+runit_service "grano" do
+  default_logger true
+  action [:enable, :start]
+  subscribes :restart, "execute[install grano]"
 end
