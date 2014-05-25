@@ -6,11 +6,11 @@
 #
 # License under MIT.
 #
-directory "/opt/grano/app" do
-  action :create
-end
-
 directory "/opt/grano" do
   action :create
   owner "nobody"
+end
+
+directory "/opt/grano/app" do
+  action :create
 end
