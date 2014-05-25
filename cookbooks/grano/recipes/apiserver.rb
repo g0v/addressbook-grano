@@ -49,5 +49,11 @@ end
 execute "init db" do
   cwd "/opt/grano/app"
   environment ({"GRANO_SETTINGS" => "/opt/grano/app/settings.py"})
-  command "grano db upgrade head & grano schema_import addressbook model.yml"
+  command "grano db upgrade head"
+end
+
+execute "init addressbook schema" do
+  cwd "/opt/grano/app"
+  environment ({"GRANO_SETTINGS" => "/opt/grano/app/settings.py"})
+  command "grano schema_import addressbook model.yml"
 end
