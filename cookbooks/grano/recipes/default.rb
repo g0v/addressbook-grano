@@ -3,10 +3,10 @@
 # Recipe:: default
 #
 # Copyright (C) 2014 YOUR_NAME
-# 
+#
 # License under MIT.
 #
-directory "/opt/grano" do
+directory "/opt/grano/app" do
   action :create
 end
 

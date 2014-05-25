@@ -37,3 +37,11 @@ connection_info[:password] = 'password'
 conn = "postgres://#{connection_info[:username]}:#{connection_info[:password]}@#{connection_info[:host]}/ly"
 
 include_recipe "grano::apilib"
+
+template "/opt/grano/app/settings.py" do
+  source "settings.py.erb"
+  owner "root"
+  group "root"
+  variables {}
+  mode 00755
+end
