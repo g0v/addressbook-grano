@@ -23,6 +23,13 @@ git "/opt/grano/grano" do
   action :sync
 end
 
+git "/opt/grano/app" do
+  repository "git://github.com/g0v/addressbook-grano.git"
+  enable_submodules true
+  reference "master"
+  action :sync
+end
+
 execute "install grano" do
   cwd "/opt/grano/grano"
   action :nothing

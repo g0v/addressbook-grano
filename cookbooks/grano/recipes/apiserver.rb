@@ -45,3 +45,10 @@ template "/opt/grano/app/settings.py" do
   variables {}
   mode 00755
 end
+
+execute "init db" do
+  cwd "/opt/grano/app"
+  action :nothing
+  environment ({"GRANO_SETTINGS" => "/opt/grano/app/settings.py"})
+  command "grano db upgrade head & grano schema_import addressbook model.yml"
+end
