@@ -29,5 +29,5 @@ execute "install grano" do
   subscribes :run, resources(:git => "/opt/grano/grano"), :immediately
   environment ({"SUDO_USER" => "", "SUDO_UID" => ""})
   #@FIXME: run production installation after setup.py fixed.
-  command "pip install -r requirements.txt && python setup.py develop && pip install psycopg2"
+  command "sudo pip install -r requirements.txt && sudo python setup.py develop && sudo pip install psycopg2"
 end
