@@ -1,0 +1,28 @@
+- name: organization
+  label: Organization
+  obj: entity
+  hidden: no
+  attributes:
+    - name: name
+      label: Name
+
+- name: person
+  label: person
+  obj: entity
+  hidden: no
+  attributes:
+    - name: name
+      label: Name
+
+- name: employment
+  label: Employment
+  label_in: Was empoloyed by
+  label_out: Worked for
+  obj: relation
+  attributes:
+      - name: start_date
+        label: Start Date
+      - name: end_date
+        label: End Date
+      - name: position
+        label: Position
