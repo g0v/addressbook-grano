@@ -3,7 +3,7 @@
   obj: entity
   hidden: no
   attributes:
-    - name: name
+    - name: orgname
       label: Name
 
 - name: person
@@ -11,7 +11,7 @@
   obj: entity
   hidden: no
   attributes:
-    - name: name
+    - name: personname
       label: Name
 
 - name: employment
