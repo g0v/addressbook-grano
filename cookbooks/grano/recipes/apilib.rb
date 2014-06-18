@@ -17,12 +17,12 @@ execute "install bower" do
 end
 
 execute "install less" do
-  command "npm i -g less@1.7.1"
+  command "npm install -g less"
   not_if "test -e /usr/bin/lessc"
 end
 
 execute "install uglify-js" do
-  command "npm i -g uglify-js@2.4.14"
+  command "npm install uglify-js -g"
   not_if "test -e /usr/bin/uglifyjs"
 end
 
