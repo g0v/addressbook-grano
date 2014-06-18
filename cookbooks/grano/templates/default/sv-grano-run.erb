@@ -1,2 +1,3 @@
 #!/bin/bash -e
-exec GRANO_SETTINGS=/opt/grano/app/settings.py grano runserver
+export GRANO_SETTINGS=/opt/grano/app/settings.py 
+grano runserver
