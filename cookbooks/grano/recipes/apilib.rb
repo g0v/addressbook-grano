@@ -61,5 +61,5 @@ execute "install grano ui" do
   subscribes :run, resources(:git => "/opt/grano/grano-ui"), :immediately
   environment ({"SUDO_USER" => "", "SUDO_UID" => ""})
   #@FIXME: run production installation after setup.py fixed.
-  command "sudo python setup.py develop && sudo bower install --allow-root"
+  command "sudo python setup.py develop && sudo bower install --allow-root && pip install git+https://github.com/miracle2k/flask-assets.git" 
 end
