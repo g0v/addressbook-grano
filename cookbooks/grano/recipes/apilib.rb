@@ -18,12 +18,12 @@ end
 
 execute "install less" do
   command "npm i -g less@1.7.1"
-  not_if "test -e /usr/bin/less"
+  not_if "test -e /usr/bin/lessc"
 end
 
-execute "install uglify-js@2.4.14" do
-  command "npm i -g less@1.2.6"
-  not_if "test -e /usr/bin/less"
+execute "install uglify-js" do
+  command "npm i -g uglify-js@2.4.14"
+  not_if "test -e /usr/bin/uglifyjs"
 end
 
 git "/opt/grano/grano" do
@@ -61,5 +61,5 @@ execute "install grano ui" do
   subscribes :run, resources(:git => "/opt/grano/grano-ui"), :immediately
   environment ({"SUDO_USER" => "", "SUDO_UID" => ""})
   #@FIXME: run production installation after setup.py fixed.
-  command "sudo python setup.py develop && sudo bower install"
+  command "sudo python setup.py develop && sudo bower install --allow-root"
 end
