@@ -33,6 +33,12 @@ git "/opt/grano/grano" do
   action :sync
 end
 
+git "/opt/grano/grano-ui" do
+  repository "git://github.com/granoproject/grano-ui.git"
+  reference "master"
+  action :sync
+end
+
 git "/opt/grano/app" do
   repository "git://github.com/g0v/addressbook-grano.git"
   enable_submodules true
@@ -47,4 +53,13 @@ execute "install grano" do
   environment ({"SUDO_USER" => "", "SUDO_UID" => ""})
   #@FIXME: run production installation after setup.py fixed.
   command "sudo pip install -r requirements.txt && sudo python setup.py develop && sudo pip install psycopg2"
+end
+
+execute "install grano ui" do
+  cwd "/opt/grano/grano-ui"
+  action :nothing
+  subscribes :run, resources(:git => "/opt/grano/grano-ui"), :immediately
+  environment ({"SUDO_USER" => "", "SUDO_UID" => ""})
+  #@FIXME: run production installation after setup.py fixed.
+  command "sudo python setup.py develop && sudo bower install"
 end
